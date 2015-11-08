@@ -257,50 +257,50 @@ You can assign weights to each class to more heavily weigh the unbalanced class,
 
 ### Next topics
 
-moment generating function
-support vector machine - kernels
-radial basis function infinite dimension
-random markov model
-back propagation
-A/B testing (power)
-recommender systems
-gaussian mixture model 
-expectation maximization
-svm vs logreg
-logreg vs random forest
-how to determine outliers
-primary vs foreign key
-information gain in decision tree
-hidden markov models
-what is pca - when to use it and when not to
-MAP, MLE, MOM
-Moment generating functions
-piecewise splines - other regression
-chi squared, weibul, beta, laplace, other distributions
-AIC, BIC, whats wrong with step-wise selection
-p-value, effect size
-vif
-eigenvector/value
-lagrangian
-convex optimization
-generalized linear models (again)
-problems with stepwise regression
-other regression - splines, sklearn stuff, mars
-kernel pca, probabilistic pca
-Discuss your views on the relationship between machine learning and statistics.
-Talk about how Deep Learning (or XYZ method) fits (or not?) within the field.
-Isn't it all just curve fitting? Talk about that.
-How are kernel methods different?
-Why do we need/want the bias term?
-Why do we call it GLM when it's clearly non-linear? (somewhat tricky question, to be asked somewhat humorously---but extremely revealing.)
-How are neural nets related to Fourier transforms? What are Fourier transforms, for that matter? Pick an algorithm you like and walk me through the math and then the implementation of it, in pseudo-code.
-OK now let's pick another one, maybe more advanced.
-Discuss the meaning of the ROC curve, and write pseudo-code to generate the data for such a curve.
-Discuss how you go about feature engineering (look for both intuition and specific evaluation techniques).
-Discuss MapReduce (or your favorite parallelization abstraction). Why is MapReduce referred to as a "shared-nothing" architecture (clearly the nodes have to share something, no?) What are the advantages/disadvantages of "shared-nothing"?
-Pick an algorithm. Write the pseudo-code for its parallel version.
-What are the trade-offs between closed-form and iterative implementations of an algorithm, in the context of distributed systems?
-Newton-Rhapson
+moment generating function  
+support vector machine - kernels  
+radial basis function infinite dimension  
+random markov model  
+back propagation  
+A/B testing (power)  
+recommender systems  
+gaussian mixture model   
+expectation maximization  
+svm vs logreg  
+logreg vs random forest  
+how to determine outliers  
+primary vs foreign key  
+information gain in decision tree  
+hidden markov models  
+what is pca - when to use it and when not to  
+MAP, MLE, MOM  
+Moment generating functions  
+piecewise splines - other regression  
+chi squared, weibul, beta, laplace, other distributions  
+AIC, BIC, whats wrong with step-wise selection  
+p-value, effect size  
+vif  
+eigenvector/value  
+lagrangian  
+convex optimization  
+generalized linear models  
+problems with stepwise regression  
+other regression - splines, sklearn stuff, mars  
+kernel pca, probabilistic pca  
+Discuss your views on the relationship between machine learning and statistics.  
+Talk about how Deep Learning (or XYZ method) fits (or not?) within the field.  
+Isn't it all just curve fitting? Talk about that.  
+How are kernel methods different?  
+Why do we need/want the bias term?  
+Why do we call it GLM when it's clearly non-linear? (somewhat tricky question, to be asked somewhat humorously---but extremely revealing.)  
+How are neural nets related to Fourier transforms? What are Fourier transforms, for that matter?  Pick an algorithm you like and walk me through the math and then the implementation of it, in pseudo-code.  
+OK now let's pick another one, maybe more advanced.  
+Discuss the meaning of the ROC curve, and write pseudo-code to generate the data for such a curve.  
+Discuss how you go about feature engineering (look for both intuition and specific evaluation   techniques).  
+Discuss MapReduce (or your favorite parallelization abstraction). Why is MapReduce referred to as a "shared-nothing" architecture (clearly the nodes have to share something, no?) What are the advantages/disadvantages of "shared-nothing"?  
+Pick an algorithm. Write the pseudo-code for its parallel version.  
+What are the trade-offs between closed-form and iterative implementations of an algorithm, in the context of distributed systems?  
+Newton-Rhapson  
 
 
 
