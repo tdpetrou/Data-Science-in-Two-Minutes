@@ -1,6 +1,11 @@
 # Data-Science-in-Two-Minutes
 Quick descriptions and answers of common data science tasks and questions
 
+### Prediction vs Inference
+Prediction - When given a set of inputs **X** and we are not necessarily conerned about underlying target function *f* (could say its a black box) and its interpretation.
+
+Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
+
 
 ### Explain generative vs discriminative
 
