@@ -1,10 +1,23 @@
 # Data-Science-in-Two-Minutes
 Quick descriptions and answers of common data science tasks and questions
 
+### What is a model?
+A simplistic representation of the world. Does not capture everything.
+
+### What is the difference between reducible and irreducible error?
+
 ### Prediction vs Inference
-Prediction - When given a set of inputs **X** and we are not necessarily conerned about underlying target function *f* (could say its a black box) and its interpretation.
+Prediction - When given a set of inputs **X** and we are not necessarily conerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
 
 Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
+
+
+### Parametirc vs Non-Parametric Modeling
+**Parametric** - The shape of the target function *f* is assumed. The most common is linear model f(X) = β0 + β1X1 + β2X2 + ... + βpXp. With model chosen parameters are estimated from historical data. If model assumptions are wrong then a poor fit could occur. Can choose more flexible models but those are prone to overfitting.
+
+**Non-Parametric** - No explicit assumptions about *f*. Can fit a wide variety of shapes. Since problem is not reduced to estimating parameters, much more data is needed for better fit. Hyperparameters are used instead to instruct fit.
+
+https://www.quora.com/What-is-the-difference-between-the-parametric-model-and-the-non-parametric-model
 
 
 ### Explain generative vs discriminative
