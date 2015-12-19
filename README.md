@@ -27,6 +27,18 @@ Inference - We care about the meaning of the predictors, their relationships, an
 https://www.quora.com/What-is-the-difference-between-the-parametric-model-and-the-non-parametric-model
 
 
+### Generalized Linear Models
+Not to be confused with General Linear Models which is the name for ordinary linear regression. General Linear Models has been abbreviated GLM with Generalized Linear Models being abbreviated GLIM but the trend is to use GLM specifically for Generalized Linear Models and have no abbreviation for General Linear Models (just call them linear models, oridary linear regression, or simple linear regression).
+
+GLMs offer more flexibility than ordinary linear regression by allowing a non-linear relationship to hold between the response and the predictors. The right hand side is still a linear combination of coefficients and covariates (**XB** in matrix notation) but the response variable **Y** is transformed by a *link* function *g* which transformed values are then assumed to have a linear relationship with the covariates.
+
+The response variable does not have the constraint that it is continuous, normally distributed with constant variance. The classic case is a binomial (0/1) response which clearly doesn't follow linear regression assumptions. The outcome (0/1) is not directly modeled in this case, just the log-odds using the logit link function. Poisson and negative binomial regression can be used to model discrete counts. The distribution of **Y** is different than the link function. For instance, with binomial data, Y is distributed as a binomial distribution and uses the logit link. In ordinary linear regression, **Y** is normally distributed with the identity link funciton.
+
+The response variable must still be independent and the covariates can be transformed as in linear regression.
+
+No closed form solution. Use maximum likelihood with newton rapson or gradient descent.
+
+
 ### Explain generative vs discriminative
 
 Generative models give a way to generate data given a particular model. They model the joint probability distribution p(x,y) and use this to calculate the posterior probability p(y|x). They model the distribution of classes p(x|y). 
