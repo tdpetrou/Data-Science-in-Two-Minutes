@@ -6,6 +6,13 @@ A simplistic representation of the world. Does not capture everything.
 
 ### What is the difference between reducible and irreducible error?
 
+### What is the difference between a machine learning model and a machine learning algorithm?
+Many times these words are used interchangeably but generally they have different meanings
+A model (or method or technique) can be a general idea of how to interpret 
+An algorithm instructs the user of the model of precisely how to execute computational steps
+Examples: Linear regression is a model and least squares (or maximum likelihood) is the algorithm used to find the parameters in the model.
+Neural Networks are a model with backpropagation
+
 ### Prediction vs Inference
 Prediction - When given a set of inputs **X** and we are not necessarily conerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
 
@@ -319,6 +326,11 @@ Discuss MapReduce (or your favorite parallelization abstraction). Why is MapRedu
 Pick an algorithm. Write the pseudo-code for its parallel version.  
 What are the trade-offs between closed-form and iterative implementations of an algorithm, in the context of distributed systems?  
 Newton-Rhapson  
+
+### Good Data Science Blogs
+blog.kaggle.com (Very useful for reading how winners of kaggle competitions win. Its usually 1. Feature Selection. 2. Gradient Boosted Trees or Deep Learning)  
+http://www.kdnuggets.com/websites/blogs.html  
+
 
 
 
