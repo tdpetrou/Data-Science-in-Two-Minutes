@@ -3,6 +3,11 @@ What is wrong with memorizing data?
 
 How would you describe a clock (in ML lingo) that is always two hours behind?
 
+##Statistics
+When is an F-test used and what are its limitation?
+
+Why does the sum of squares regression (SSR) have only one degree of freedom?
+
 
 ##Generic Questions
 What do you think a data scientist does?
