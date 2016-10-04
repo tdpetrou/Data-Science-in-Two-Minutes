@@ -3,13 +3,13 @@ When presented a set of inputs, a machine can learn some thing about those input
 
 ##Types of Machine Learning
 Machine learning can be divided into three broad learning types  
-*Supervised - All inputs correspond with an output. The machine can be trained to predict future outputs.  
-*Unsupervised - Only inputs are given. Machine can learn different structures within the input data.  
-*Reinforcement - After a certain set of actions performed some feedback on performance is returned which is used by the machine to learn.  
+* Supervised - All inputs correspond with an output. The machine can be trained to predict future outputs.  
+* Unsupervised - Only inputs are given. Machine can learn different structures within the input data.  
+* Reinforcement - After a certain set of actions performed some feedback on performance is returned which is used by the machine to learn.  
 
 ###Supervised Machine Learning Output
-*Regression - Continuous real valued response.
-*Classification - Each output is a particular class. **Nominal** classes have no particular natural ordering. **Ordinal** classes have a particular order (for example: Good, Average, Bad)
+* Regression - Continuous real valued response.
+* Classification - Each output is a particular class. **Nominal** classes have no particular natural ordering. **Ordinal** classes have a particular order (for example: Good, Average, Bad)
 
 
 ###Model
