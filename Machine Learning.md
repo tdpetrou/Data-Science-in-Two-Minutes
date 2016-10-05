@@ -25,7 +25,7 @@ A simplistic representation of the world. Does not capture everything.
 * Parametric - the form of the model is known before hand. Finite number of parameters. Machine learns the cofficients/parameters of the model. More rigid but simpler to learn and interpret. Examples are linear, logistic regression and linear support vector machines.
 * Non-Parametric - Does not mean no parameters. The funcitonal form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
 
-[Blog Post](http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/)  
+[Blog Post][para vs non blog]  
 [Quora Thread](https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why)
 
 ###The many synonymous names for input and output variables
@@ -50,7 +50,7 @@ Linear regression makes many assumptions that make for a more rigid model though
 ###Fitting Linear Regression
 Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum abolute error and other loss functions can be used. 
 
-[!equation](https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6)
+![equation](https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6)
 
 ###Multiple Regression
 Simple linear regression is with one predictor variable. Multiple Linear regression is with two or more.
@@ -290,3 +290,5 @@ L1 - L1 norm, diamond shaped. Easier to think of this regularization as a condit
 L1 better at sparse data. Incorrectly used on non-sparse data could yield large error.
 L2 better at prediction since both highly correlated variables stay in the model.
 L2 is like diversifying your portfolio. If one variable is corrupted can use other variable. L1 is more aggressive.
+
+[para vs non blog]: (http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/)
