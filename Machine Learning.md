@@ -5,15 +5,42 @@ When presented a set of inputs, a machine can learn some thing about those input
 Machine learning can be divided into three broad learning types  
 * Supervised - All inputs correspond with an output. The machine can be trained to predict future outputs.  
 * Unsupervised - Only inputs are given. Machine can learn different structures within the input data.  
-* Reinforcement - After a certain set of actions performed some feedback on performance is returned which is used by the machine to learn.  
+* Reinforcement - After a certain set of actions are performed some feedback on performance is returned which is used by the machine to learn.  
 
 ###Supervised Machine Learning Output
 * Regression - Continuous real valued response.
 * Classification - Each output is a particular class. **Nominal** classes have no particular natural ordering. **Ordinal** classes have a particular order (for example: Good, Average, Bad)
 
 
+#Supervised Machine Learning
+
 ###Model
 A simplistic representation of the world. Does not capture everything.
+
+###Flexible vs Inflexible Models
+* Flexible - Model has more knobs to tune and fit more wiggly (non-linear data). More prone to overfitting.
+* Inflexible - Less knobs to tune. More rigid and usually more assumptions and easiert to intepret.
+
+###Parametric vs Non-Parametric Model
+* Parametric - the form of the model is known before hand. Finite number of parameters. Machine learns the cofficients/parameters of the model. More rigid but simpler to learn and interpret. Examples are linear, logistic regression and linear support vector machines.
+* Non-Parametric - Does not mean no parameters. The funcitonal form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
+
+[Blog Post](http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/) 
+[Quora Thread](https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why)
+
+###The many synonymous names for input and output variables
+* Input variables - predictor, covariates, feature, independent, explanatory, controlled, regressor, X
+* Output variable - response, dependent, target, Y
+
+##Linear Regression
+A very simple regression model that models the response as a linear combination of the predictor variables.
+
+###Assumptions
+Linear regression makes many assumptions that make for a more rigid model though there are other techniques that can add flexibility to the mdoel.
+* Predictors are fixed constants
+* Parameters are linear. Highly non-linear fits can still be made by transforming predictor variables. Only parameters need remain linear.
+* Variance is constant (Homoskedasticity). Plots of predicted value vs error are good to inspect whether this assumption is true. Non-constant variance can be a major problem with linear regression that can sometimes be alleviated by tranforming the response variable.
+* 
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
