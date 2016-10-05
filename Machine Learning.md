@@ -291,4 +291,4 @@ L1 better at sparse data. Incorrectly used on non-sparse data could yield large 
 L2 better at prediction since both highly correlated variables stay in the model.
 L2 is like diversifying your portfolio. If one variable is corrupted can use other variable. L1 is more aggressive.
 
-[para vs non blog]: (http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/)
+[para vs non blog]: http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/
