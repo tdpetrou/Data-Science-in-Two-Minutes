@@ -45,18 +45,28 @@ Linear regression makes many assumptions that make for a more rigid model though
 * No linear dependence (multicollinearity). No predictor variable can be a linear combination of all other predictors. Full rank matrix. 
 * Linear specification is correct. The linear model accurately describes the true relationship between predictors and response.
 
-[Blog][regression assumptions]
+[Linear Regression Assumption Blog post][regression assumptions]
 
 ###Fitting Linear Regression
 Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum abolute error and other loss functions can be used. 
 
+Least squares equation below. 
 ![equation][least squares equation]
+
+The model coefficients can also be estimated using [gradient descent][gd blog]. Which slowly moves in the direction of the gradient (found by taking the derivative of the least squares equation with respect to each parameter) to find the optimal parameters. The method of maximum likelihood can also be used whenever there is a parameterized probability distribution for the error terms. Procedure works by finding the likehood function (multiplying all the probability of each point) and using calculus to maximize this product. 
 
 ###Multiple Regression
 Simple linear regression is with one predictor variable. Multiple Linear regression is with two or more.
 
 ###Variable Tranformations
 Predictor variables can be transformed in any way imaginable as long as the input (design) matrix remains full rank. 
+
+###Linear Regression Problems and how to Fix them
+####[Outliers vs High Leverage Observations][outlier vs leverage]
+* Problem - Large outliers can have large influence on the parameters since error terms are squared
+* How to discover - Box plots, plots of predicted value vs error
+* [Influential observations][influence link] - Cooks distance and DFFITS are good metrics. Both focus on how much a predicted value changes when one observation is left out.   
+* Solution - Examine outliers for data quality issues. 
 
 
 ### SVM vs Logistic Regression
@@ -293,3 +303,6 @@ L2 is like diversifying your portfolio. If one variable is corrupted can use oth
 [quora para vs non]: https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why
 [regression assumptions]: https://economictheoryblog.com/2015/04/01/ols_assumptions/
 [least squares equation]: https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6
+[gd blog]: https://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/
+[influence link]: http://onlinestatbook.com/2/regression/influential.html
+[outlier vs leverage]: https://onlinecourses.science.psu.edu/stat501/node/337
