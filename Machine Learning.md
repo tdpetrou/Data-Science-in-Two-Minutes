@@ -62,9 +62,13 @@ Simple linear regression is with one predictor variable. Multiple Linear regress
 Predictor variables can be transformed in any way imaginable as long as the input (design) matrix remains full rank. 
 
 ###Linear Regression Problems and how to Fix them
-####[Outliers vs High Leverage Observations][outlier vs leverage]
-* Problem - Large outliers can have large influence on the parameters since error terms are squared
-* How to discover - Box plots, plots of predicted value vs error
+####[Outliers vs High Leverage Observations vs Influence][outlier vs leverage]
+* Outliers are responses that are atypical. 
+* High leverage observations are unusual combinations of predictor variable values. Those observations that are furthest away from the mean of X. 
+* Influential Obervations have drastic effects on model predictions, parameter estimates and hypothesis tests
+
+####Detecting Influential Observations
+* How to discover - plots of predicted value vs (studentized) residual. Look at deleted studentized residuals
 * [Influential observations][influence link] - Cooks distance and DFFITS are good metrics. Both focus on how much a predicted value changes when one observation is left out.   
 * Solution - Examine outliers for data quality issues. 
 
