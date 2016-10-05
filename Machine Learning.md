@@ -26,7 +26,7 @@ A simplistic representation of the world. Does not capture everything.
 * Non-Parametric - Does not mean no parameters. The funcitonal form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
 
 [Blog Post][para vs non blog]  
-[Quora Thread](https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why)
+[Quora Thread][quora para vs non]  
 
 ###The many synonymous names for input and output variables
 * Input variables - predictor, covariates, feature, independent, explanatory, controlled, regressor, X
@@ -45,20 +45,18 @@ Linear regression makes many assumptions that make for a more rigid model though
 * No linear dependence (multicollinearity). No predictor variable can be a linear combination of all other predictors. Full rank matrix. 
 * Linear specification is correct. The linear model accurately describes the true relationship between predictors and response.
 
-[Blog](https://economictheoryblog.com/2015/04/01/ols_assumptions/)  
+[Blog][regression assumptions]
 
 ###Fitting Linear Regression
 Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum abolute error and other loss functions can be used. 
 
-![equation](https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6)
+![equation][least squares equation]
 
 ###Multiple Regression
 Simple linear regression is with one predictor variable. Multiple Linear regression is with two or more.
 
 ###Variable Tranformations
 Predictor variables can be transformed in any way imaginable as long as the input (design) matrix remains full rank. 
-
-
 
 
 ### SVM vs Logistic Regression
@@ -292,3 +290,6 @@ L2 better at prediction since both highly correlated variables stay in the model
 L2 is like diversifying your portfolio. If one variable is corrupted can use other variable. L1 is more aggressive.
 
 [para vs non blog]: http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/
+[quora para vs non]: https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why
+[regression assumptions]: https://economictheoryblog.com/2015/04/01/ols_assumptions/
+[least squares equation]: https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6
