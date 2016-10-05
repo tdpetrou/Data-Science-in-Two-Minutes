@@ -25,7 +25,7 @@ A simplistic representation of the world. Does not capture everything.
 * Parametric - the form of the model is known before hand. Finite number of parameters. Machine learns the cofficients/parameters of the model. More rigid but simpler to learn and interpret. Examples are linear, logistic regression and linear support vector machines.
 * Non-Parametric - Does not mean no parameters. The funcitonal form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
 
-[Blog Post](http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/) 
+[Blog Post](http://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/)  
 [Quora Thread](https://www.quora.com/Do-Support-Vector-Machines-come-under-parametric-or-non-parametric-models-and-why)
 
 ###The many synonymous names for input and output variables
@@ -39,8 +39,27 @@ A very simple regression model that models the response as a linear combination 
 Linear regression makes many assumptions that make for a more rigid model though there are other techniques that can add flexibility to the mdoel.
 * Predictors are fixed constants
 * Parameters are linear. Highly non-linear fits can still be made by transforming predictor variables. Only parameters need remain linear.
-* Variance is constant (Homoskedasticity). Plots of predicted value vs error are good to inspect whether this assumption is true. Non-constant variance can be a major problem with linear regression that can sometimes be alleviated by tranforming the response variable.
-* 
+* Eror variance is constant (Homoskedasticity). Plots of predicted value vs error are good to inspect whether this assumption is true. Non-constant variance can be a major problem with linear regression that can sometimes be alleviated by tranforming the response variable.
+* Errors are independent of one another. Knowing one error does not give information about another error as is the case with time series data.
+* Errors are normally distributed with mean 0.
+* No linear dependence (multicollinearity). No predictor variable can be a linear combination of all other predictors. Full rank matrix. 
+* Linear specification is correct. The linear model accurately describes the true relationship between predictors and response.
+
+[Blog](https://economictheoryblog.com/2015/04/01/ols_assumptions/)  
+
+###Fitting Linear Regression
+Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum abolute error and other loss functions can be used. 
+
+[!equation](https://wikimedia.org/api/rest_v1/media/math/render/svg/917759911692e98ba477c3d669356525a84aace6)
+
+###Multiple Regression
+Simple linear regression is with one predictor variable. Multiple Linear regression is with two or more.
+
+###Variable Tranformations
+Predictor variables can be transformed in any way imaginable as long as the input (design) matrix remains full rank. 
+
+
+
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
