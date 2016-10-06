@@ -19,11 +19,11 @@ A simplistic representation of the world. Does not capture everything.
 
 ###Flexible vs Inflexible Models
 * Flexible - Model has more knobs to tune and fit more wiggly (non-linear data). More prone to overfitting.
-* Inflexible - Less knobs to tune. More rigid and usually more assumptions and easiert to intepret.
+* Inflexible - Less knobs to tune. More rigid and usually more assumptions and easier to interpret.
 
 ###Parametric vs Non-Parametric Model
-* Parametric - the form of the model is known before hand. Finite number of parameters. Machine learns the cofficients/parameters of the model. More rigid but simpler to learn and interpret. Examples are linear, logistic regression and linear support vector machines.
-* Non-Parametric - Does not mean no parameters. The funcitonal form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
+* Parametric - the form of the model is known before hand. Finite number of parameters. Machine learns the coefficients/parameters of the model. More rigid but simpler to learn and interpret. Examples are linear, logistic regression and linear support vector machines.
+* Non-Parametric - Does not mean no parameters. The functional form of the model is not set before hand. Potentially infinite number of parameters. K-nearest neighbors, decision trees, RBF kernel Support Vector Machines  
 
 [Blog Post][para vs non blog]  
 [Quora Thread][quora para vs non]  
@@ -36,10 +36,10 @@ A simplistic representation of the world. Does not capture everything.
 A very simple regression model that models the response as a linear combination of the predictor variables.
 
 ###Assumptions
-Linear regression makes many assumptions that make for a more rigid model though there are other techniques that can add flexibility to the mdoel.
+Linear regression makes many assumptions that make for a more rigid model though there are other techniques that can add flexibility to the model.
 * Predictors are fixed constants
 * Parameters are linear. Highly non-linear fits can still be made by transforming predictor variables. Only parameters need remain linear.
-* Eror variance is constant (Homoskedasticity). Plots of predicted value vs error are good to inspect whether this assumption is true. Non-constant variance can be a major problem with linear regression that can sometimes be alleviated by tranforming the response variable.
+* Error variance is constant (Homoskedasticity). Plots of predicted value vs error are good to inspect whether this assumption is true. Non-constant variance can be a major problem with linear regression that can sometimes be alleviated by transforming the response variable.
 * Errors are independent of one another. Knowing one error does not give information about another error as is the case with time series data.
 * Errors are normally distributed with mean 0.
 * No linear dependence (multicollinearity). No predictor variable can be a linear combination of all other predictors. Full rank matrix. 
@@ -48,29 +48,29 @@ Linear regression makes many assumptions that make for a more rigid model though
 [Linear Regression Assumption Blog post][regression assumptions]
 
 ###Fitting Linear Regression
-Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum abolute error and other loss functions can be used. 
+Different algorithms and different metrics can be used to find the parameters of a linear regression model. Most popular is method of least squares which minimizes the squared error between the regression line and each point. Minimum absolute error and other loss functions can be used. 
 
 Least squares equation below. 
 ![equation][least squares equation]
 
-The model coefficients can also be estimated using [gradient descent][gd blog]. Which slowly moves in the direction of the gradient (found by taking the derivative of the least squares equation with respect to each parameter) to find the optimal parameters. The method of maximum likelihood can also be used whenever there is a parameterized probability distribution for the error terms. Procedure works by finding the likehood function (multiplying all the probability of each point) and using calculus to maximize this product. 
+The model coefficients can also be estimated using [gradient descent][gd blog]. Which slowly moves in the direction of the gradient (found by taking the derivative of the least squares equation with respect to each parameter) to find the optimal parameters. The method of maximum likelihood can also be used whenever there is a parameterized probability distribution for the error terms. Procedure works by finding the likelihood function (multiplying all the probability of each point) and using calculus to maximize this product. 
 
 ###Multiple Regression
 Simple linear regression is with one predictor variable. Multiple Linear regression is with two or more.
 
-###Variable Tranformations
+###Variable Transformations
 Predictor variables can be transformed in any way imaginable as long as the input (design) matrix remains full rank. 
 
 ###Linear Regression Problems and how to Fix them
 ####[Outliers vs High Leverage Observations vs Influence][outlier vs leverage]
-* Outliers are responses that are atypical. 
-* High leverage observations are unusual combinations of predictor variable values. Those observations that are furthest away from the mean of X. 
-* Influential Obervations have drastic effects on model predictions, parameter estimates and hypothesis tests
+* Outliers are responses that are atypical and don't fit the natural trend of the data. 
+* High leverage observations are unusual combinations of predictor variable values. Those observations that are furthest away from the mean of X. In simple linear regression, the observations at the end have the most leverage simply by being further away from the mean of the predictor variable.
+* Influential Observations have drastic effects on model predictions, parameter estimates and hypothesis tests
 
-####Detecting Influential Observations
-* How to discover - plots of predicted value vs (studentized) residual. Look at deleted studentized residuals
+####Detecting Outliers and Influential Observations
+* How to discover outliers - plots of predicted value vs (studentized) residual. Look at deleted studentized residuals
 * [Influential observations][influence link] - Cooks distance and DFFITS are good metrics. Both focus on how much a predicted value changes when one observation is left out.   
-* Solution - Examine outliers for data quality issues. 
+* Fix - Examine outliers/influential observations for data quality issues. Delete them only when you have a good reason. Robust estimation 
 
 
 ### SVM vs Logistic Regression
@@ -80,7 +80,7 @@ links
 http://www.quora.com/Support-Vector-Machines/What-is-the-difference-between-Linear-SVMs-and-Logistic-Regression
 
 ### Prediction vs Inference
-Prediction - When given a set of inputs **X** and we are not necessarily conerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
+Prediction - When given a set of inputs **X** and we are not necessarily concerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
 
 Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
 
@@ -108,7 +108,7 @@ Drop out layers reduce overfitting. Individual neurons drop out with some predef
 Max-Pooling: After each convolutional layer, there may be a pooling layer. The pooling layer takes small rectangular blocks from the convolutional layer and subsamples it to produce a single output from that block. There are several ways to do this pooling, such as taking the average or the maximum, or a learned linear combination of the neurons in the block. Our pooling layers will always be max-pooling layers; that is, they take the maximum of the block they are pooling.
 
 ### Generalized Linear Models
-Not to be confused with General Linear Models which is the name for ordinary linear regression. General Linear Models has been abbreviated GLM with Generalized Linear Models being abbreviated GLIM but the trend is to use GLM specifically for Generalized Linear Models and have no abbreviation for General Linear Models (just call them linear models, oridary linear regression, or simple linear regression).
+Not to be confused with General Linear Models which is the name for ordinary linear regression. General Linear Models has been abbreviated GLM with Generalized Linear Models being abbreviated GLIM but the trend is to use GLM specifically for Generalized Linear Models and have no abbreviation for General Linear Models (just call them linear models, ordinary linear regression, or simple linear regression).
 
 GLMs offer more flexibility than ordinary linear regression by allowing a non-linear relationship to hold between the response and the predictors. The right hand side is still a linear combination of coefficients and covariates (**XB** in matrix notation) but the response variable **Y** is transformed by a *link* function *g* which transformed values are then assumed to have a linear relationship with the covariates.
 
@@ -146,7 +146,7 @@ http://stats.stackexchange.com/questions/12421/generative-vs-discriminative
 http://www.cedar.buffalo.edu/~srihari/CSE574/Discriminative-Generative.pdf
 
 
-### Parametirc vs Non-Parametric Modeling
+### Parametric vs Non-Parametric Modeling
 **Parametric** - The shape of the target function *f* is assumed. The most common is linear model f(X) = β0 + β1X1 + β2X2 + ... + βpXp. With model chosen parameters are estimated from historical data. If model assumptions are wrong then a poor fit could occur. Can choose more flexible models but those are prone to overfitting.
 
 **Non-Parametric** - No explicit assumptions about *f*. Can fit a wide variety of shapes. Since problem is not reduced to estimating parameters, much more data is needed for better fit. Hyperparameters are used instead to instruct fit.
