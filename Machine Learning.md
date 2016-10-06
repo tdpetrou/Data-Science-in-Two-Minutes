@@ -68,9 +68,26 @@ Predictor variables can be transformed in any way imaginable as long as the inpu
 * Influential Observations have drastic effects on model predictions, parameter estimates and hypothesis tests
 
 ####Detecting Outliers and Influential Observations
-* How to discover outliers - plots of predicted value vs (studentized) residual. Look at deleted studentized residuals
-* [Influential observations][influence link] - Cooks distance and DFFITS are good metrics. Both focus on how much a predicted value changes when one observation is left out.   
-* Fix - Examine outliers/influential observations for data quality issues. Delete them only when you have a good reason. Robust estimation 
+* How to discover outliers - plots of predicted value vs (studentized) residual. But this won't work when outlier pulls regression line close to it. Look at deleted studentized residuals
+* [How to discover influential observations][influence link] - Cooks distance and DFFITS are good metrics. Both focus on how much a predicted value changes when one observation is left out.   
+* Fix - Examine outliers/influential observations for data quality issues. Delete them only when you have a good reason. Use [Robust estimation][robust estimation] to downweight outliers.
+
+
+####[Diagnostics and fixes for regression][diagnostics regerssion]
+When the assumptions of the linear model are violated then the value of the model can decrease
+* Non-linear fit: A plot of residuals vs predicted values. If there is any kind of trend that can be modeled with the residuals, the model is not correctly specified. Need to use interaction terms, polynomial features, a different model or a transformation to the responses to make linear.
+* Correlated Errors - Diagnosed by plotting residuals over time (or by row). Some time-series analysis can be done to detect any dependence on previous residuals or previous response. Fix by adding lags of dependent and independent variable
+* Non-constant Variance - Diagnosed by looking at studentized residuals. If they grow/shrink then there is a problem. Fix by taking log transform of response. Can use box-cox method to find more precise transformation.
+* Non-normal errors - Normal errors are not a necessary assumption. Diagnose with qq-plot. Points should fall close to diagonal line. Can fix with methods for outliers above.
+* Multicollinearity - When predictor variables are highly correlated with one another. Can lead to very unstable coefficients and poorly interpretted and fit models. Use correlation matrix and pair plot of all combinations of predictor variables to see most highly correlated predictors. Also can use Variance Inflation Factor which determines how predictable a predictor variable is when that predictor variable is used as the response variable. Can fix by selecting to keep just one of each highly correlated pair. Also by centering and scaling predictor values. Better to use penalized regression like ridge, lasso or elastic net.
+
+###Linear Regression Interpretation
+If all the assumptions in the model hold and there are no interaction or polynomial terms then the coefficient of each predictor variable tells us the amount of increase in the response when that predictor variable is increased by one unit holding all other predictor variables constant.  
+
+###Regression Output
+* Coefficients and t-statistics - Each coefficient and its standard error is estimated from the data and is modeled by student-t distribution. A t-test is conducted to produce a p-value - a level of significance
+* Confidence interval - Confidence intervals can exist for the coefficients, the value of the regression line and for the prediction of a single obervation. They are not probabilities. Given a significance level, say 95%, the statistic you are measuring will capture the true value 95% of the time. 
+* F - test: Determins if at least one of the predictors is necessary for the model. Does not say which ones are significant. Explained variance / Unexplained Variance
 
 
 ### SVM vs Logistic Regression
@@ -310,3 +327,5 @@ L2 is like diversifying your portfolio. If one variable is corrupted can use oth
 [gd blog]: https://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/
 [influence link]: http://onlinestatbook.com/2/regression/influential.html
 [outlier vs leverage]: https://onlinecourses.science.psu.edu/stat501/node/337
+[robust estimation]: https://onlinecourses.science.psu.edu/stat501/node/353
+[diagnostics regression]: http://people.duke.edu/~rnau/testing.htm
