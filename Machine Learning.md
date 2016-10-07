@@ -112,7 +112,7 @@ Models the probability of a binomial distribution given input data. The output o
 Logistic Regression uses the same (linear combination of predictors times a coefficient) as linear regression except that it takes the result of this combination and smushes it with the sigmoid so that it's value is always between 0 and 1.
 
 ###Sigmoid Function
-[!sigmoid][sigmoid image]
+![sigmoid][sigmoid image]
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
