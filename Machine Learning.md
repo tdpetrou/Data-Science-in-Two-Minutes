@@ -101,12 +101,18 @@ Building a model with all predictor variables typically isn't best practice (unl
 ####Selection Criteria
 AIC, BIC, Mallows CP and adjusted R-squared are 'historical' metrics for penalizing linear models without splitting data and doing cross validation. These metrics are used because residual squared error will always improve when more variables are added to the model. These selection criteria penalize for more predictors. Cross validation is typically used in place of these criteria when there is enough data.
 
-###Inference vs Prediction
-* Inference - Understand meaning of model. How change in value of predictors affect outcome.
-* Prediction - Care only about how good final prediction is.
+###Prediction vs Inference
+* Prediction - When given a set of inputs **X** and we are not necessarily concerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
+* Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
 
 ##Logistic Regression
 Models the probability of a binomial distribution given input data. The output of logistic regression is the probability that an observation is in one of two classes. So even though technically logistic regression outputs a number between 0 and 1, it is used for classification.
+
+###Logistic Model Specification
+Logistic Regression uses the same (linear combination of predictors times a coefficient) as linear regression except that it takes the result of this combination and smushes it with the sigmoid so that it's value is always between 0 and 1.
+
+###Sigmoid Function
+[!sigmoid][sigmoid image]
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
@@ -114,10 +120,7 @@ If there is a separating hyperplane there is no guarantee logistic regression wi
 links
 http://www.quora.com/Support-Vector-Machines/What-is-the-difference-between-Linear-SVMs-and-Logistic-Regression
 
-### Prediction vs Inference
-Prediction - When given a set of inputs **X** and we are not necessarily concerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
 
-Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
 
 
 ### Recurrent Neural Net
@@ -347,3 +350,4 @@ L2 is like diversifying your portfolio. If one variable is corrupted can use oth
 [outlier vs leverage]: https://onlinecourses.science.psu.edu/stat501/node/337
 [robust estimation]: https://onlinecourses.science.psu.edu/stat501/node/353
 [diagnostics regression]: http://people.duke.edu/~rnau/testing.htm
+[sigmoid function]: https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13
