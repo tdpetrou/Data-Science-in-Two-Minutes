@@ -87,8 +87,26 @@ If all the assumptions in the model hold and there are no interaction or polynom
 ###Regression Output
 * Coefficients and t-statistics - Each coefficient and its standard error is estimated from the data and is modeled by student-t distribution. A t-test is conducted to produce a p-value - a level of significance
 * Confidence interval - Confidence intervals can exist for the coefficients, the value of the regression line and for the prediction of a single obervation. They are not probabilities. Given a significance level, say 95%, the statistic you are measuring will capture the true value 95% of the time. 
-* F - test: Determins if at least one of the predictors is necessary for the model. Does not say which ones are significant. Explained variance / Unexplained Variance
+* F - test: Determins if at least one of the predictors is necessary for the model. Does not say which ones are significant. F-ratio = Explained variance / Unexplained Variance. F-Ratio equals 1 when the model explains nothing.
 
+###Model Selection
+Building a model with all predictor variables typically isn't best practice (unless using penalized regression). Normally we look for parsimonious models - the least number of predictors with the highest predictive power. There are several ways to do this.
+
+####Stepwise Selection
+* Forward Selection - Start with null model and add one variable at a time until some stopping criteria is met. Stop when eith AIC, BIC, Mallows CP, Adjusted R-squared stop improving
+* Backward Selection - Start will full model and remove one variable at a time until stopping criteria is met.
+* Forward and Backward selection - At each step, chose one variable to either add or remove from model
+* Best subset - make all possible models (not possible if number of predictors is large) and choose best
+
+####Selection Criteria
+AIC, BIC, Mallows CP and adjusted R-squared are 'historical' metrics for penalizing linear models without splitting data and doing cross validation. These metrics are used because residual squared error will always improve when more variables are added to the model. These selection criteria penalize for more predictors. Cross validation is typically used in place of these criteria when there is enough data.
+
+###Inference vs Prediction
+* Inference - Understand meaning of model. How change in value of predictors affect outcome.
+* Prediction - Care only about how good final prediction is.
+
+##Logistic Regression
+Models the probability of a binomial distribution given input data. The output of logistic regression is the probability that an observation is in one of two classes. So even though technically logistic regression outputs a number between 0 and 1, it is used for classification.
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
