@@ -106,13 +106,19 @@ AIC, BIC, Mallows CP and adjusted R-squared are 'historical' metrics for penaliz
 * Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
 
 ##Logistic Regression
-Models the probability of a binomial distribution given input data. The output of logistic regression is the probability that an observation is in one of two classes. So even though technically logistic regression outputs a number between 0 and 1, it is used for classification.
+Simple model used for classification. Models the probability of a binomial distribution given input data. The output of logistic regression is the probability that an observation is in one of two classes. So even though technically logistic regression outputs a number between 0 and 1, it is used for classification.
 
 ###Logistic Model Specification
 Logistic Regression uses the same (linear combination of predictors times a coefficient) as linear regression except that it takes the result of this combination and smushes it with the sigmoid so that it's value is always between 0 and 1.
 
 ###Sigmoid Function
 ![sigmoid][sigmoid image]
+
+###Logist Regression Assumptions
+* Outcome is binary, 0/1, and follows a bernoulli distribution.
+
+###Model Interpretation
+Some algebra with the sigmoid function will show that for every one unit increase in a predictor variable will result in a corresponding increase parameter value increase to the log odds. The log odds can be any real number.
 
 ### SVM vs Logistic Regression
 If there is a separating hyperplane there is no guarantee logistic regression will be able to find the best one. It just guarantees the probability will be 0 or 1. This is more so for unregularized LR. SVMs might not do as well if there are random points close to the hyperplane
