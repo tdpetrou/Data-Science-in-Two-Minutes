@@ -350,4 +350,4 @@ L2 is like diversifying your portfolio. If one variable is corrupted can use oth
 [outlier vs leverage]: https://onlinecourses.science.psu.edu/stat501/node/337
 [robust estimation]: https://onlinecourses.science.psu.edu/stat501/node/353
 [diagnostics regression]: http://people.duke.edu/~rnau/testing.htm
-[sigmoid function]: https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13
+[sigmoid image]: https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13
