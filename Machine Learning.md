@@ -73,7 +73,7 @@ Predictor variables can be transformed in any way imaginable as long as the inpu
 * Fix - Examine outliers/influential observations for data quality issues. Delete them only when you have a good reason. Use [Robust estimation][robust estimation] to downweight outliers.
 
 
-####[Diagnostics and fixes for regression][diagnostics regerssion]
+####[Diagnostics and fixes for regression][diagnostics regression]
 When the assumptions of the linear model are violated then the value of the model can decrease
 * Non-linear fit: A plot of residuals vs predicted values. If there is any kind of trend that can be modeled with the residuals, the model is not correctly specified. Need to use interaction terms, polynomial features, a different model or a transformation to the responses to make linear.
 * Correlated Errors - Diagnosed by plotting residuals over time (or by row). Some time-series analysis can be done to detect any dependence on previous residuals or previous response. Fix by adding lags of dependent and independent variable
@@ -87,13 +87,13 @@ If all the assumptions in the model hold and there are no interaction or polynom
 ###Regression Output
 * Coefficients and t-statistics - Each coefficient and its standard error is estimated from the data and is modeled by student-t distribution. A t-test is conducted to produce a p-value - a level of significance
 * Confidence interval - Confidence intervals can exist for the coefficients, the value of the regression line and for the prediction of a single obervation. They are not probabilities. Given a significance level, say 95%, the statistic you are measuring will capture the true value 95% of the time. 
-* F - test: Determins if at least one of the predictors is necessary for the model. Does not say which ones are significant. F-ratio = Explained variance / Unexplained Variance. F-Ratio equals 1 when the model explains nothing.
+* F - test: Determines if at least one of the predictors is necessary for the model. Does not say which ones are significant. F-ratio = Explained variance / Unexplained Variance. F-Ratio equals 1 when the model explains nothing.
 
 ###Model Selection
 Building a model with all predictor variables typically isn't best practice (unless using penalized regression). Normally we look for parsimonious models - the least number of predictors with the highest predictive power. There are several ways to do this.
 
 ####Stepwise Selection
-* Forward Selection - Start with null model and add one variable at a time until some stopping criteria is met. Stop when eith AIC, BIC, Mallows CP, Adjusted R-squared stop improving
+* Forward Selection - Start with null model and add one variable at a time until some stopping criteria is met. Stop when AIC, BIC, Mallows CP, Adjusted R-squared stop improving
 * Backward Selection - Start will full model and remove one variable at a time until stopping criteria is met.
 * Forward and Backward selection - At each step, chose one variable to either add or remove from model
 * Best subset - make all possible models (not possible if number of predictors is large) and choose best
@@ -102,7 +102,7 @@ Building a model with all predictor variables typically isn't best practice (unl
 AIC, BIC, Mallows CP and adjusted R-squared are 'historical' metrics for penalizing linear models without splitting data and doing cross validation. These metrics are used because residual squared error will always improve when more variables are added to the model. These selection criteria penalize for more predictors. Cross validation is typically used in place of these criteria when there is enough data.
 
 ##Penalized Regression
-Linear regresssion can be fit with numerous features and combinations/transformations of features with many of these features can be highly correlated to one another. As flexibility in the model increases, so does overfitting, building a model that fits the training set well but does not generalize well to unseen data. One of the best methods to combat overfitting is to penalize least squares by adding a term proportional to the size of the parameter. Ridge and Lasso regression are the most popular. Penalized regression does an excellent job at controlling overfitting. Can be used when number of parameters is greater than number of predictors. It is important to standardize predictors by subtracting mean and dividing by standard deviation since the size of the coefficient is directly related to the scale.
+Linear regression can be fit with numerous features and combinations/transformations of features with many of these features can be highly correlated to one another. As flexibility in the model increases, so does overfitting, building a model that fits the training set well but does not generalize well to unseen data. One of the best methods to combat overfitting is to penalize least squares by adding a term proportional to the size of the parameter. Ridge and Lasso regression are the most popular. Penalized regression does an excellent job at controlling overfitting. Can be used when number of parameters is greater than number of predictors. It is important to standardize predictors by subtracting mean and dividing by standard deviation since the size of the coefficient is directly related to the scale.
 
 ###Ridge Regression
 A penalty proportional to the L2 norm is added to the least squares equation. A closed-form solution exists. As the penalty increases the coefficients in the model tend towards 0.
@@ -116,13 +116,13 @@ The penalty is proportional to the L1 norm. Coefficients will become exactly 0 a
 Has both L1 and L2 penalty
 
 ###Principal Components Regression
-Instead of fitting the dataset to all p predictors, use principal component analysis to find the first m < p principal components that explain most of the variance and use these m transformed predictors in least squares. Choose the number of principal components by cross-validatoin. Standardize variables first.
+Instead of fitting the dataset to all p predictors, use principal component analysis to find the first m < p principal components that explain most of the variance and use these m transformed predictors in least squares. Choose the number of principal components by cross-validation. Standardize variables first.
 
 ###Partial Least Squares
 PLS is a supervised alternative to PCR. Standardize predictors and compute first component, Z as linear combination of each predictor, X, times its correlation coefficient to Y. Now use simple linear regression for all predictors onto Z and get residuals. Use these residuals to again find correlation coefficient to Y. Keep iterating until desired number of components is reached.
 
 ###Regression Splines
-Linear regression in one variable does not work well when trying to fit through highly non-linear data. Polynomial features can be used but this can lead to unstable swings in the regression line. Piecewise regression can be used using to help avoid using high degree polynomial terms. Regression splines with knots can also work very well and are surprisingly easy to fit. A cublc regression spline is built with X, X^2, X^3 and a third degree term for each knot. Apply least squares and the magic spline will pop out that is continuous at each knot and have the same first and second derivatives and look very smooth to the human eye. A slight variation is a natural cubic spline which must be linear before and after the first and last knots.
+Linear regression in one variable does not work well when trying to fit through highly non-linear data. Polynomial features can be used but this can lead to unstable swings in the regression line. Piecewise regression can be used using to help avoid using high degree polynomial terms. Regression splines with knots can also work very well and are surprisingly easy to fit. A cubic regression spline is built with X, X^2, X^3 and a third degree term for each knot. Apply least squares and the magic spline will pop out that is continuous at each knot and have the same first and second derivatives and look very smooth to the human eye. A slight variation is a natural cubic spline which must be linear before and after the first and last knots.
 
 ###Smoothing Splines
 Find a function that minimizes the squared loss but also is penalized proportional to its second derivative. If the second derivative is too high then the function will be very wiggly and overfit the data. This penalty ensures a smooth fit. It can be shown that a smoothing spline is a natural cubic spline with knots at every unique x value.
@@ -133,20 +133,18 @@ At each unique x, a new low degree polynomial is fit. Each point is weighted by 
 ###Generalized Additive Models
 A method that can use many different linear models, such as splines or weighted regression or polynomial features as additive building blocks to build one big linear regression. Fit using backfitting.
 
-
 ###Multivariate Adaptive Splines (MARS)
-
-
+MARS is a linear combination of multiple hinge functions. An example hinge (hockey stick) function is max(0, x - c) where c is a constant and a knot.  MARS is fit in an iterative, greedy fashion that adds two mirrored hinge functions to its model that have the greatest affect on lowering the squared error. After the addition of the pair of terms, pruning takes place where a term can be excluded from the model. 
 
 ###Prediction vs Inference
-* Prediction - When given a set of inputs **X** and we are not necessarily concerned about interpretting the underlying target function *f* (could say its a black box) to predict **y**.
+* Prediction - When given a set of inputs **X** and we are not necessarily concerned about interpreting the underlying target function *f* (could say its a black box) to predict **y**.
 * Inference - We care about the meaning of the predictors, their relationships, and how are they related (linear, non-linear) 
 
 ##Logistic Regression
 Simple model used for classification. Models the probability of a bernoulli distribution given input data. The output of logistic regression is the probability that an observation is in one of two classes. So even though technically logistic regression outputs a number between 0 and 1, it is used for classification.
 
 ###Logistic Model Specification
-Logistic Regression uses the same (linear combination of predictors times a coefficient) as linear regression except that it takes the result of this combination and smushes it with the sigmoid function so that it's value is always between 0 and 1.
+Logistic Regression uses the same (linear combination of predictors times a coefficient) as linear regression except that it takes the result of this combination and smashes it with the sigmoid function so that it's value is always between 0 and 1.
 
 ###Sigmoid Function
 ![sigmoid][sigmoid image]
@@ -159,7 +157,7 @@ Not to be confused with General Linear Models (abbreviated GLM) which is the nam
 
 GLMs offer more flexibility than ordinary linear regression by allowing a non-linear relationship to hold between the response and the predictors. The right hand side is still a linear combination of coefficients and covariates (**XB** in matrix notation) but the response variable **Y** is transformed by a *link* function *g* which transformed values are then assumed to have a linear relationship with the covariates.
 
-The response variable does not have the constraint that it is continuous, normally distributed with constant variance. The classic case is a binomial (0/1) response which clearly doesn't follow linear regression assumptions. The outcome (0/1) is not directly modeled in this case, just the log-odds using the logit link function. Poisson and negative binomial regression can be used to model discrete counts. The distribution of **Y** is different than the link function. For instance, with binomial data, Y is distributed as a binomial distribution and uses the logit link. In ordinary linear regression, **Y** is normally distributed with the identity link funciton.
+The response variable does not have the constraint that it is continuous, normally distributed with constant variance. The classic case is a binomial (0/1) response which clearly doesn't follow linear regression assumptions. The outcome (0/1) is not directly modeled in this case, just the log-odds using the logit link function. Poisson and negative binomial regression can be used to model discrete counts. The distribution of **Y** is different than the link function. For instance, with binomial data, Y is distributed as a binomial distribution and uses the logit link. In ordinary linear regression, **Y** is normally distributed with the identity link function.
 
 The response variable must still be independent and the covariates can be transformed as in linear regression.
 
@@ -169,7 +167,7 @@ No closed form solution. Use maximum likelihood with newton rapson or gradient d
 LDA is a machine learning method that can be used to classify two or more classes. LDA works by first assuming all predictor variables follow a normal distribution.  A multivariate normal distribution is estimated for each predictor for each different class. So, if there are three classes, 3 separate multivariate normal (with common covariance matrix and class specific mean) distributions will arise. A prior distribution of the classes is created based directly on the proportion of each class in the training data. Using bayes theorem, prediction can be made given a new observation.
 
 ##Quadratic Disriminant Analysis
-Same as LDA except that there will be a separate covariance matrix for each class. This give it more flexibilty than LDA.
+Same as LDA except that there will be a separate covariance matrix for each class. This give it more flexibility than LDA.
 
 
 
